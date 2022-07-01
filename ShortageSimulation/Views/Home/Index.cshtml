@@ -1,33 +1,50 @@
-﻿@{
+﻿@model IEnumerable<ShortageViewModel>;
+@{
     ViewData["Title"] = "Home Page";
 }
 <h2>請輸入成品料號及數量</h2>
 <p></p>
+
+<form method="post" asp-controller="Home" asp-action="Calculate">
 <div class="FG" id="C1">
     <label>成品料號</label>
-<input type="text" list="Name" name="FGName"/>
+<input type="text" list="data" name="FGName" required/>
 <label>數量</label>
-<input type="text" name="qty"/>
+<input type="text" name="qty" required/>
+<button type="button" class="btn btn-warning" onclick="Remove(this)" hidden="hidden">Remove</button>
 <p></p>
-<datalist id="Name">
-    <option>Apple</option>
-    <option>Boy</option>
-    <option>Apollo</option>
-    <option>Dog</option>
-    <option>Doggy</option>
-    <option>Jerry</option>
-    <option>Silvester</option>
-    <option>Jason</option>
+<datalist id="data">
+    @{
+        foreach (var  item in Model)
+        {
+                        <option>@item.FGName</option>
+        }
+    }
+
 </datalist>
 </div>
 
-<button type="button" class="btn btn-success" onclick="Copy()">Add</button>
-<button type="button" class="btn btn-warning" onclick="Copy()">Remove</button>
+<button type="button" class="btn btn-success" onclick="Copy(this)">Add</button>
+<input type="submit" value="送出"/>
+</form>
+
 <script>
     var i=2;
-    function Copy(){
-        var newId="C"+i;
+    var newId = '';
+    function Copy(item){
+        //設ID
+        newId="C"+i;
+        //複製
         $('#C1').clone().attr('id', newId).insertAfter('#C1');
+        $(('#' + newId) +'>button').removeAttr('hidden');
+
+        //清空料號及數量
+        $(('#' + newId) + '>input[name=FGName]').val("");
+        $(('#' + newId) + '>input[name=qty]').val("");
         i=i+1;
+    }
+ 
+        function Remove(item){
+            $(item).closest(".FG").remove();
     }
 </script>

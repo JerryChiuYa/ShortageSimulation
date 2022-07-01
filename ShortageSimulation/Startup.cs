@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ShortageSimulation.Models;
+using ShortageSimulation.ShortageCT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +27,10 @@ namespace ShortageSimulation
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //¥[¤JSql connections strings
+            services.AddDbContext<ShortageContext>(s=>s.UseSqlServer("name=ConnectionStrings:Shortage"));
+            //Dependency injection
+            services.AddScoped<ICustomerServices,CustomerServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
