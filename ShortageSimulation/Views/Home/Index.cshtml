@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<h2>請輸入成品料號及數量</h2>
+<p></p>
+<div class="FG" id="C1">
+    <label>成品料號</label>
+<input type="text" list="Name" name="FGName"/>
+<label>數量</label>
+<input type="text" name="qty"/>
+<p></p>
+<datalist id="Name">
+    <option>Apple</option>
+    <option>Boy</option>
+    <option>Apollo</option>
+    <option>Dog</option>
+    <option>Doggy</option>
+    <option>Jerry</option>
+    <option>Silvester</option>
+    <option>Jason</option>
+</datalist>
+</div>
+
+<button type="button" class="btn btn-success" onclick="Copy()">Add</button>
+<button type="button" class="btn btn-warning" onclick="Copy()">Remove</button>
+<script>
+    var i=2;
+    function Copy(){
+        var newId="C"+i;
+        $('#C1').clone().attr('id', newId).insertAfter('#C1');
+        i=i+1;
+    }
+</script>
