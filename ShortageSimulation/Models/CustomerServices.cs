@@ -15,7 +15,14 @@ namespace ShortageSimulation.Models
         {
             _context = context;
         }
-        public async Task<List<ShortageViewModel>> GetAllFinishedGoods()
+
+        public async Task<List<FinishedGoods>> GetAllFgGoods()
+        {
+            var entity=await _context.FinishedGoods.ToListAsync();
+            return entity;
+        }
+
+        public async Task<List<ShortageViewModel>> GetAllFgNames()
         {
             var entity = (from c in _context.FinishedGoods select c.Fname).Distinct();
             var nameList = await entity.ToListAsync();
@@ -28,6 +35,12 @@ namespace ShortageSimulation.Models
             }
             return result;
 
+        }
+
+        public async Task<List<Materials>> GetAllMaterialStocks()
+        {
+            var entity=await _context.Materials.ToListAsync();
+            return entity;
         }
     }
 }

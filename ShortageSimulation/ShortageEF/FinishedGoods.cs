@@ -10,6 +10,6 @@ namespace ShortageSimulation.ShortageEF
         public int Fid { get; set; }
         public string Fname { get; set; }
         public string Mname { get; set; }
-        public int? Usage { get; set; }
+        public int Usage { get; set; }
     }
 }

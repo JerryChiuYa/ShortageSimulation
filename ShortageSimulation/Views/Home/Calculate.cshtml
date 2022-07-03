@@ -1,7 +1,62 @@
-﻿
+﻿@model ShortageSimulation.Models.ResultViewModel;
 @{
     ViewData["Title"] = "Calculate";
 }
 
-<h1>您預做的成品為</h1>
+<h2>您預做的成品為</h2>
+
+<table class="table table-info table-hover table-striped" style="width:50%">
+    <thead>
+        <tr>
+            <td>成品料號</td>
+            <td>訂單數量</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        
+            @{
+                foreach (var item in Model.orders)
+                {
+                    <tr>
+                    <td>@item.FName</td>
+                    <td>@item.OrderQty</td>
+                     </tr>
+                }
+            }
+      
+    </tbody>
+</table>
+
+<p></p>
+<h2>缺料狀況如下</h2>
+
+<table class="table table-secondary table-hover table-striped">
+    <thead>
+        <tr>
+            <td>元件料號</td>
+            <td>元件庫存</td>
+            <td>元件需求</td>
+            <td>短缺數量</td>
+            <td>短缺概況</td>
+        </tr>
+    </thead>
+
+    <tbody>
+       
+            @{
+                foreach (var item in Model.shortages)
+                {
+                     <tr>
+                    <td>@item.Mname</td>
+                    <td>@item.Stocks</td>
+                    <td>@item.Demands</td>
+                    <td>@item.ShortageQty</td>
+                    <td>@item.Remark</td>
+                      </tr>
+                }
+            }
+     
+    </tbody>
+</table>
 

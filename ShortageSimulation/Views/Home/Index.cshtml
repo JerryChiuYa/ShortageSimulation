@@ -10,7 +10,7 @@
     <label>成品料號</label>
 <input type="text" list="data" name="FGName" required/>
 <label>數量</label>
-<input type="text" name="qty" required/>
+<input type="text" name="OrderQty" required/>
 <button type="button" class="btn btn-warning" onclick="Remove(this)" hidden="hidden">Remove</button>
 <p></p>
 <datalist id="data">
@@ -25,9 +25,9 @@
 </div>
 
 <button type="button" class="btn btn-success" onclick="Copy(this)">Add</button>
-<input type="submit" value="送出"/>
+<input type="submit" class="btn btn-primary" value="Calculate"/>
 </form>
-
+    
 <script>
     var i=2;
     var newId = '';
@@ -40,7 +40,7 @@
 
         //清空料號及數量
         $(('#' + newId) + '>input[name=FGName]').val("");
-        $(('#' + newId) + '>input[name=qty]').val("");
+        $(('#' + newId) + '>input[name=OrderQty]').val("");
         i=i+1;
     }
  

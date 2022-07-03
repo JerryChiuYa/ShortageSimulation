@@ -33,10 +33,12 @@ namespace ShortageSimulation.ShortageCT
                     .HasDefaultValueSql("(NEXT VALUE FOR [sqFG])");
 
                 entity.Property(e => e.Fname)
+                    .IsRequired()
                     .HasColumnName("FName")
                     .HasMaxLength(100);
 
                 entity.Property(e => e.Mname)
+                    .IsRequired()
                     .HasColumnName("MName")
                     .HasMaxLength(100);
             });
@@ -48,6 +50,7 @@ namespace ShortageSimulation.ShortageCT
                     .HasDefaultValueSql("(NEXT VALUE FOR [dbo].[sqML])");
 
                 entity.Property(e => e.Mname)
+                    .IsRequired()
                     .HasColumnName("MName")
                     .HasMaxLength(100);
             });

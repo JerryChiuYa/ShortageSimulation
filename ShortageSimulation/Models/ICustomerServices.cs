@@ -6,6 +6,8 @@ namespace ShortageSimulation.Models
 {
     public interface ICustomerServices
     {
-        public Task<List<ShortageViewModel>> GetAllFinishedGoods();
+        public Task<List<ShortageViewModel>> GetAllFgNames();
+        public Task<List<FinishedGoods>> GetAllFgGoods();
+        public Task<List<Materials>> GetAllMaterialStocks();
     }
 }
