@@ -39,8 +39,8 @@ Here, you can input your Sales Orders, view the Shortage components.<br>
 <ul>
 <li>Use SSMS</li>
 <p>Please copy my variable name and data type to let C# easily to use.</p>
-<img src="/ImgForIntro/ssms.png" width="50%" height="50%"/>
-<img src="/ImgForIntro/data.png" width="70%" height="70%"/>
+<img src="/ImgForIntro/ssms.png" width="70%" height="70%"/>
+<img src="/ImgForIntro/data.png" width="50%" height="50%"/>
 
 <li>Use EF Power tools</li>
 <img src="/ImgForIntro/ef1.png" width="50%" height="50%"/>
