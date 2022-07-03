@@ -5,7 +5,7 @@ This is a simulate Shortage report.<br>
 Here, you can input your Sales Orders, view the Shortage components.<br>
 
 #### Input the Sales Orders
-<img src="/ImgForIntro/Input.png"/>
+<img src="/ImgForIntro/Input.png" width="80%" height="80%"/>
 <p></p>
 
 #### Result
