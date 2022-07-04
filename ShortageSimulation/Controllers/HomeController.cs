@@ -37,9 +37,9 @@ namespace ShortageSimulation.Controllers
             var allFGNames = await _customerServices.GetAllFgNames();
             for (int i = 0; i < FGName.Length; i++)
             {
-                var result=allFGs.Where(a=>a.Fname== FGName[i]).FirstOrDefault();
+                var existName=allFGs.Where(a=>a.Fname== FGName[i]).FirstOrDefault();
                 
-                if (result==null)
+                if (existName == null)
                 {
                     ViewBag.Msg = FGName[i];
                     return View("Index", allFGNames);
