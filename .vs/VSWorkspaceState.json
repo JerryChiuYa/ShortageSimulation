@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\ShortageSimulation",
-    "\\ShortageSimulation\\Views"
+    "\\ShortageSimulation\\Views",
+    "\\ShortageSimulation\\Views\\Home"
   ],
-  "SelectedNode": "\\ShortageSimulation\\Views\\Home",
   "PreviewInSolutionExplorer": false
 }

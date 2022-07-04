@@ -23,18 +23,32 @@ namespace ShortageSimulation.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var viewModel = new List<ShortageViewModel>();
-            viewModel=await _customerServices.GetAllFgNames();
+            var viewModel = await _customerServices.GetAllFgNames();
             return View(viewModel);
         }
         [HttpPost]
         public async Task<IActionResult> Calculate(string []FGName, int [] OrderQty)
         {
+   
             //Request.Form.TryGetValue("FGName", out var nameList);
             //var array=nameList.ToArray();
             var FgOrder=new List<SalesOrder>();
+            var allFGs = await _customerServices.GetAllFgGoods();
+            var allFGNames = await _customerServices.GetAllFgNames();
             for (int i = 0; i < FGName.Length; i++)
             {
+                var result=allFGs.Where(a=>a.Fname== FGName[i]).FirstOrDefault();
+                
+                if (result==null)
+                {
+                    ViewBag.Msg = FGName[i];
+                    return View("Index", allFGNames);
+                }
+                if (OrderQty[i]<=0)
+                {
+                    ViewBag.Msg = "數字需大於0, 請重新輸入!";
+                    return View("Index", allFGNames);
+                }
                 var fg=new SalesOrder();
                 fg.FName= FGName[i];
                 fg.OrderQty=OrderQty[i];
@@ -46,7 +60,7 @@ namespace ShortageSimulation.Controllers
                 OrderQty=y.Sum(x=>x.OrderQty),
                 FName=y.Key
             }).ToList();
-            var allFGs = await _customerServices.GetAllFgGoods();
+            
             var Mrps = new List<MRPqty>();
             foreach (var item in Orders)
             {
