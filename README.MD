@@ -108,6 +108,7 @@ Here, you can input your Sales Orders, view the Shortage components.<br>
 <li>In View of Home</li>
 
 ```html5
+
 <form method="post" asp-controller="Home" asp-action="Calculate">
 <div class="FG" id="C1">
     <label>成品料號</label>
