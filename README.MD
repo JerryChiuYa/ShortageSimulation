@@ -128,14 +128,14 @@ Here, you can input your Sales Orders, view the Shortage components.<br>
 </datalist>
 </div>
 
-<button type="button" class="btn btn-success" onclick="Copy(this)">Add</button>
+<button type="button" class="btn btn-success" onclick="Copy()">Add</button>
 <input type="submit" class="btn btn-primary" value="Calculate"/>
 </form>
 
 <script>
     var i=2;
     var newId = '';
-    function Copy(item){
+    function Copy(){
         //³]ID
         newId="C"+i;
         //½Æ»s
